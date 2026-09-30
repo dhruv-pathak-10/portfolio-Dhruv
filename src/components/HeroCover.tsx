@@ -2,110 +2,131 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDownRight, ArrowRight } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function HeroCover() {
   return (
-    <section className="relative bg-[#F6F1EB] pt-8 pb-20 md:pt-12 md:pb-28 overflow-hidden border-b border-[#6D0305]/15">
-      {/* Top Editorial Metadata Banner */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 mb-8 md:mb-12">
-        <div className="flex flex-wrap items-center justify-between gap-4 text-[11px] font-mono tracking-widest text-[#450C0A] uppercase border-b border-[#6D0305]/15 pb-4">
+    <section className="relative bg-[#F6F1EB] min-h-[calc(100svh-64px)] lg:h-[calc(100svh-64px)] flex flex-col justify-between overflow-hidden border-b border-[#6D0305]/15">
+      {/* =========================================================================
+          LAYER 1 & 3: Background & Subtle Architectural Graphic Anchor
+          ========================================================================= */}
+      <div className="absolute inset-0 pointer-events-none select-none z-0">
+        {/* Subtle architectural vertical line anchoring the composition */}
+        <div className="hidden lg:block absolute left-[55%] top-0 bottom-0 w-[1px] bg-[#6D0305]/10" />
+        {/* Physical editorial rectangular color block behind subject */}
+        <div className="hidden lg:block absolute left-[42%] right-[10%] top-16 bottom-0 bg-[#EADEDA]/25 -z-10" />
+      </div>
+
+      {/* =========================================================================
+          TOP: Editorial Metadata Strip (Begins safely below Navbar, never clipped)
+          ========================================================================= */}
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 pt-4 sm:pt-6 z-20 shrink-0">
+        <div className="flex flex-wrap items-center justify-between gap-4 text-[11px] font-mono tracking-widest text-[#450C0A] uppercase border-b border-[#6D0305]/15 pb-3">
           <div className="flex items-center gap-3">
             <span className="w-2 h-2 rounded-full bg-[#B12223]" />
             <span className="font-semibold text-[#6D0305]">DHRUV PATHAK</span>
-            <span>/</span>
+            <span className="text-[#6D0305]/40">/</span>
             <span>AHMEDABAD, INDIA</span>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span>AI SOLUTIONS ENGINEER</span>
-            <span className="hidden sm:inline">·</span>
+          <div className="flex items-center gap-4 text-[#78716C]">
+            <span className="text-[#6D0305] font-medium">AI SOLUTIONS ENGINEER</span>
+            <span className="hidden sm:inline text-[#6D0305]/40">·</span>
             <span className="hidden sm:inline">AI ADOPTION &amp; CONSULTING</span>
           </div>
         </div>
       </div>
 
-      {/* Main Magazine Cover Composition */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 relative">
-        {/* Background Large Headline Behind/Around Portrait */}
-        <div className="relative z-0 select-none">
-          <div className="font-display text-[64px] sm:text-[100px] md:text-[130px] lg:text-[160px] leading-[0.88] text-[#B12223] tracking-tighter uppercase">
-            <span>I DON&apos;T</span>
+      {/* =========================================================================
+          MAIN STAGE: Overlapping Typography (Layer 2) + Cutout Subject (Layer 4) + Meta (Layer 5)
+          ========================================================================= */}
+      <div className="relative flex-1 w-full max-w-7xl mx-auto px-6 sm:px-10 flex flex-col justify-between py-4 sm:py-6">
+        {/* LAYER 2: Giant Editorial Headline (Clean top clearance, zero clipping) */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 select-none pointer-events-none max-w-4xl"
+        >
+          <h1 className="font-display uppercase tracking-tighter leading-[0.86] text-[clamp(44px,7.4vw,116px)]">
+            <span className="block text-[#B12223]">I DON&apos;T</span>
             <span className="block text-[#6D0305]">JUST BUILD AI.</span>
+          </h1>
+        </motion.div>
+
+        {/* LAYER 4: Dhruv Cutout Portrait (100% Transparent Background, Clean Silhouette) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="pointer-events-none z-20 flex items-end justify-center
+                     my-4 lg:my-0
+                     lg:absolute lg:left-[55%] lg:-translate-x-1/2 lg:bottom-0"
+        >
+          <div className="relative h-[46vh] sm:h-[56vh] md:h-[64vh] lg:h-[76vh] xl:h-[82vh] max-h-[760px] aspect-[1/1]">
+            <Image
+              src="/images/dhruv-cutout.png"
+              alt="Dhruv Pathak — AI Solutions Engineer"
+              fill
+              priority
+              sizes="(max-width: 768px) 85vw, (max-width: 1200px) 50vw, 760px"
+              className="object-contain object-bottom filter contrast-[1.02]"
+            />
           </div>
-        </div>
+        </motion.div>
 
-        {/* Central Editorial Subject & Overlapping Typography */}
-        <div className="relative z-10 -mt-8 sm:-mt-16 md:-mt-24 lg:-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-          {/* Left Column: Supporting statement & Metadata */}
-          <div className="lg:col-span-4 order-2 lg:order-1 space-y-6 pt-6 lg:pt-0">
-            <div className="border-l-2 border-[#B12223] pl-4">
-              <span className="text-[11px] font-mono tracking-widest uppercase text-[#B12223] block mb-1 font-semibold">
-                CORE THESIS
-              </span>
-              <p className="text-sm sm:text-base text-[#450C0A] font-medium leading-snug">
-                &ldquo;I don&apos;t just build AI. I figure out where it belongs.&rdquo;
-              </p>
-            </div>
-
-            <p className="text-xs sm:text-sm text-[#78716C] leading-relaxed font-sans max-w-sm">
-              AI Solutions Engineer working across AI adoption, solution architecture,
-              automation and business workflows — turning messy operational problems into
-              practical, deployable systems.
+        {/* LAYER 5: Lower-Left Region: Core Thesis & Editorial CTAs */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="relative z-30 max-w-[340px] sm:max-w-[400px] space-y-4 pt-2 lg:pt-0"
+        >
+          <div className="border-l-2 border-[#B12223] pl-3.5 space-y-1">
+            <span className="text-[11px] font-mono tracking-widest uppercase text-[#B12223] font-semibold block">
+              CORE THESIS
+            </span>
+            <p className="text-sm sm:text-base text-[#450C0A] font-medium leading-snug">
+              &ldquo;I don&apos;t just build AI. I figure out where it belongs.&rdquo;
             </p>
-
-            <div className="pt-2 flex flex-wrap items-center gap-4">
-              <Link
-                href="#work"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#B12223] text-[#FCF7F1] text-xs font-mono font-semibold tracking-wider hover:bg-[#6D0305] transition-colors"
-              >
-                <span>EXPLORE MY WORK</span>
-                <ArrowDownRight className="w-4 h-4" />
-              </Link>
-
-              <Link
-                href="/resume"
-                className="text-xs font-mono tracking-wider text-[#6D0305] hover:text-[#B12223] underline underline-offset-4 transition-colors"
-              >
-                VIEW RESUME
-              </Link>
-            </div>
           </div>
 
-          {/* Center / Right Column: The Visual Portrait Anchor */}
-          <div className="lg:col-span-8 order-1 lg:order-2 relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[480px] sm:max-w-[540px] md:max-w-[600px] aspect-[4/5] overflow-hidden border border-[#6D0305]/20 shadow-xl shadow-[#6D0305]/5">
-              {/* Decorative Red Tint & Cream Matting */}
-              <Image
-                src="/dhruv-portrait.jpg"
-                alt="Dhruv Pathak — AI Solutions Engineer"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 550px"
-                className="object-cover object-top filter contrast-[1.03]"
-              />
+          <p className="text-xs sm:text-sm text-[#78716C] leading-relaxed font-sans">
+            AI Solutions Engineer working across AI adoption, solution architecture,
+            automation and business workflows — turning messy operational problems into
+            practical, deployable systems.
+          </p>
 
-              {/* Editorial bottom title strip overlay */}
-              <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#6D0305]/90 via-[#6D0305]/40 to-transparent p-6 pt-16 text-[#FCF7F1]">
-                <div className="font-display text-2xl sm:text-3xl tracking-tight uppercase">
-                  DHRUV PATHAK
-                </div>
-                <div className="text-[11px] font-mono tracking-widest uppercase text-[#EADEDA]">
-                  AI ADOPTION · SOLUTION ARCHITECTURE · REVOPS
-                </div>
-              </div>
-            </div>
+          <div className="pt-1 flex flex-wrap items-center gap-3">
+            <Link
+              href="#work"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-[#6D0305] text-[#FCF7F1] text-xs font-mono font-semibold tracking-wider hover:bg-[#B12223] transition-colors rounded-[2px]"
+            >
+              <span>EXPLORE MY WORK</span>
+              <ArrowDownRight className="w-4 h-4" />
+            </Link>
+
+            <Link
+              href="/resume"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-[#F6F1EB] border-2 border-[#6D0305] text-[#6D0305] text-xs font-mono font-semibold tracking-wider hover:bg-[#6D0305] hover:text-[#FCF7F1] transition-colors rounded-[2px]"
+            >
+              <span>VIEW RESUME</span>
+            </Link>
           </div>
-        </div>
+        </motion.div>
+      </div>
 
-        {/* Second Headline Row: Asymmetrical Typography */}
-        <div className="mt-12 sm:mt-16 pt-8 border-t border-[#6D0305]/15 flex flex-col md:flex-row md:items-baseline justify-between gap-6">
-          <div className="font-display text-3xl sm:text-5xl md:text-6xl text-[#6D0305] tracking-tight uppercase">
+      {/* =========================================================================
+          BOTTOM STRIP: Asymmetrical Secondary Headline
+          ========================================================================= */}
+      <div className="w-full max-w-7xl mx-auto px-6 sm:px-10 pb-4 pt-3 border-t border-[#6D0305]/15 z-20 shrink-0">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+          <div className="font-display text-2xl sm:text-4xl md:text-5xl text-[#6D0305] tracking-tight uppercase leading-none">
             I FIGURE OUT WHERE IT BELONGS.
           </div>
-
-          <div className="text-xs font-mono text-[#78716C] max-w-xs shrink-0">
-            <span>&ldquo;I bridge business problems and technical execution.&rdquo;</span>
+          <div className="text-[11px] font-mono tracking-widest text-[#78716C] uppercase">
+            &ldquo;BRIDGING BUSINESS PROBLEMS &amp; TECHNICAL EXECUTION&rdquo;
           </div>
         </div>
       </div>
