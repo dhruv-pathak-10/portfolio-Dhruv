@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="burgundyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7A0407"/>
+      <stop offset="100%" stop-color="#550204"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Burgundy Squircle Background -->
+  <rect width="64" height="64" rx="15" fill="url(#burgundyGrad)"/>
+  
+  <!-- Subtle Red Inner Border -->
+  <rect x="2" y="2" width="60" height="60" rx="13" fill="none" stroke="#B12223" stroke-width="1.25" opacity="0.45"/>
+
+  <!-- Architectural Nexus: 4 Directional Tan Facets -->
+  <!-- Top Facet -->
+  <polygon points="32,13 39,24 32,22 25,24" fill="#F6F1EB"/>
+  
+  <!-- Bottom Facet -->
+  <polygon points="32,51 39,40 32,42 25,40" fill="#F6F1EB"/>
+  
+  <!-- Left Facet -->
+  <polygon points="13,32 24,25 22,32 24,39" fill="#F6F1EB"/>
+  
+  <!-- Right Facet -->
+  <polygon points="51,32 40,25 42,32 40,39" fill="#F6F1EB"/>
+
+  <!-- Secondary Diagonal Architectural Nodes (Subtle Tan/Blush) -->
+  <circle cx="21" cy="21" r="2.2" fill="#EADEDA" opacity="0.6"/>
+  <circle cx="43" cy="21" r="2.2" fill="#EADEDA" opacity="0.6"/>
+  <circle cx="21" cy="43" r="2.2" fill="#EADEDA" opacity="0.6"/>
+  <circle cx="43" cy="43" r="2.2" fill="#EADEDA" opacity="0.6"/>
+
+  <!-- Central Core Red Diamond -->
+  <polygon points="32,25 39,32 32,39 25,32" fill="#B12223"/>
+
+  <!-- Center Tan Focal Point -->
+  <circle cx="32" cy="32" r="2.5" fill="#F6F1EB"/>
+</svg>

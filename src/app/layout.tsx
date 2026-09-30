@@ -25,6 +25,15 @@ export const metadata: Metadata = {
     description: "I don't just build AI. I figure out where it belongs.",
     siteName: "Dhruv Pathak Editorial Portfolio",
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
