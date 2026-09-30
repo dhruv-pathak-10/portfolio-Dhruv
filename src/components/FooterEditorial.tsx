@@ -89,23 +89,47 @@ export default function FooterEditorial() {
           </div>
         </div>
 
+        {/* Topical Architecture / SEO Internal Link Graph */}
+        <div className="py-8 border-b border-[#FCF7F1]/20">
+          <span className="text-[10px] font-mono tracking-widest uppercase text-[#EADEDA]/60 block mb-4">
+            TOPICAL CAPABILITIES &amp; CONSULTING SPECIALIZATIONS
+          </span>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-3 text-xs font-mono">
+            <Link href="/ai-adoption" className="text-[#FCF7F1] hover:text-[#EADEDA] underline underline-offset-4 transition-colors">
+              AI Adoption &amp; Consulting
+            </Link>
+            <Link href="/ai-solutions" className="text-[#FCF7F1] hover:text-[#EADEDA] underline underline-offset-4 transition-colors">
+              AI Solutions Engineering
+            </Link>
+            <Link href="/solution-architecture" className="text-[#FCF7F1] hover:text-[#EADEDA] underline underline-offset-4 transition-colors">
+              Solution Architecture
+            </Link>
+            <Link href="/ai-automation" className="text-[#FCF7F1] hover:text-[#EADEDA] underline underline-offset-4 transition-colors">
+              AI Agents &amp; Automation
+            </Link>
+            <Link href="/voice-ai" className="text-[#FCF7F1] hover:text-[#EADEDA] underline underline-offset-4 transition-colors">
+              Voice AI Telephony
+            </Link>
+          </div>
+        </div>
+
         {/* Quick Navigation & Copyright */}
-        <div className="pt-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-xs font-mono text-[#EADEDA]/60">
+        <div className="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 text-xs font-mono text-[#EADEDA]/60">
           <div className="flex flex-wrap items-center gap-6 text-[#FCF7F1]">
-            <Link href="#work" className="hover:text-[#EADEDA] transition-colors">
+            <Link href="/work" className="hover:text-[#EADEDA] transition-colors">
               WORK
             </Link>
-            <Link href="#thinking" className="hover:text-[#EADEDA] transition-colors">
+            <Link href="/methodology" className="hover:text-[#EADEDA] transition-colors">
               METHODOLOGY
             </Link>
-            <Link href="#experience" className="hover:text-[#EADEDA] transition-colors">
-              EXPERIENCE
-            </Link>
-            <Link href="#about" className="hover:text-[#EADEDA] transition-colors">
+            <Link href="/about" className="hover:text-[#EADEDA] transition-colors">
               ABOUT
             </Link>
             <Link href="/resume" className="hover:text-[#EADEDA] transition-colors">
               RESUME
+            </Link>
+            <Link href="/contact" className="hover:text-[#EADEDA] transition-colors">
+              CONTACT
             </Link>
           </div>
 

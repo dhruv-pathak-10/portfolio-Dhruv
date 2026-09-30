@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import FooterEditorial from "@/components/FooterEditorial";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { getBreadcrumbJsonLd, getProjectJsonLd } from "@/lib/jsonld";
 import { CASE_STUDIES } from "@/data/portfolioData";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
@@ -9,13 +11,35 @@ export const metadata: Metadata = {
   title: "Case Study: Institutional School ERP Architecture — Dhruv Pathak",
   description:
     "Full-stack institutional school management ERP system deployed for 500+ active users across attendance, grading, scheduling, and communications.",
+  alternates: {
+    canonical: "https://itsdhruv.online/work/school-erp",
+  },
+  openGraph: {
+    title: "Case Study: Institutional School ERP Architecture — Dhruv Pathak",
+    description: "Modular full-stack ERP architecture serving 500+ active institutional users with role-based access control.",
+    url: "https://itsdhruv.online/work/school-erp",
+  },
 };
 
 export default function SchoolErpCaseStudyPage() {
   const study = CASE_STUDIES.find((c) => c.slug === "school-erp")!;
+  const breadcrumbs = getBreadcrumbJsonLd([
+    { name: "Home", item: "/" },
+    { name: "Work", item: "/work" },
+    { name: "Institutional School ERP", item: "/work/school-erp" },
+  ]);
+  const projectJsonLd = getProjectJsonLd({
+    name: study.title,
+    description: study.problem,
+    url: "/work/school-erp",
+    technologies: study.technologies,
+    applicationCategory: "EnterpriseApplication",
+  });
 
   return (
     <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
+      <JsonLd data={breadcrumbs} />
+      <JsonLd data={projectJsonLd} />
       <Navbar />
 
       <article className="pt-32 pb-24 px-6 md:px-10 max-w-5xl mx-auto">

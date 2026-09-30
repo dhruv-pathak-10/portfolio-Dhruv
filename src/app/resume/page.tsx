@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import FooterEditorial from "@/components/FooterEditorial";
+import JsonLd from "@/components/JsonLd";
+import { getBreadcrumbJsonLd, getPersonJsonLd } from "@/lib/jsonld";
 import { EXPERIENCE_ITEMS, EDUCATION, PROOF_METRICS } from "@/data/portfolioData";
 import { Download, ExternalLink, FileText, CheckCircle2, Mail, Phone, MapPin, Globe } from "lucide-react";
 import type { Metadata } from "next";
@@ -8,13 +10,28 @@ export const metadata: Metadata = {
   title: "Resume & Curriculum Vitae — Dhruv Pathak",
   description:
     "Curriculum Vitae and Executive Brief for Dhruv Pathak — AI Solutions Engineer, AI Adoption Specialist, and Solution Architect.",
+  alternates: {
+    canonical: "https://itsdhruv.online/resume",
+  },
+  openGraph: {
+    title: "Resume & Curriculum Vitae — Dhruv Pathak",
+    description: "Executive resume and curriculum vitae for Dhruv Pathak — AI Solutions Engineer & Solution Architect.",
+    url: "https://itsdhruv.online/resume",
+  },
 };
 
 export default function ResumePage() {
   const resumePdfPath = "/Dhruv_Pathak_AI_Adoption_Specialist_Resume.pdf";
+  const breadcrumbs = getBreadcrumbJsonLd([
+    { name: "Home", item: "/" },
+    { name: "Resume", item: "/resume" },
+  ]);
+  const personJsonLd = getPersonJsonLd();
 
   return (
     <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
+      <JsonLd data={breadcrumbs} />
+      <JsonLd data={personJsonLd} />
       <Navbar />
 
       <section className="pt-32 pb-24 px-6 md:px-10 max-w-5xl mx-auto">

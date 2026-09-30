@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import FooterEditorial from "@/components/FooterEditorial";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { getBreadcrumbJsonLd } from "@/lib/jsonld";
 import { CASE_STUDIES } from "@/data/portfolioData";
 import { ArrowDownRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
@@ -9,11 +11,25 @@ export const metadata: Metadata = {
   title: "Selected Work & Systems Architecture — Dhruv Pathak",
   description:
     "Production-grade AI solutions, Voice AI calling agents, multi-agent business automations, and institutional ERP architectures deployed by Dhruv Pathak.",
+  alternates: {
+    canonical: "https://itsdhruv.online/work",
+  },
+  openGraph: {
+    title: "Selected Work & Systems Architecture — Dhruv Pathak",
+    description: "Production-grade AI solutions, Voice AI calling agents, multi-agent automations, and ERP architectures.",
+    url: "https://itsdhruv.online/work",
+  },
 };
 
 export default function WorkIndexPage() {
+  const breadcrumbs = getBreadcrumbJsonLd([
+    { name: "Home", item: "/" },
+    { name: "Work", item: "/work" },
+  ]);
+
   return (
     <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
+      <JsonLd data={breadcrumbs} />
       <Navbar />
 
       <section className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto">

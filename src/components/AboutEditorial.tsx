@@ -22,11 +22,11 @@ export default function AboutEditorial() {
             <div className="relative aspect-[4/5] w-full max-w-[420px] mx-auto border-2 border-[#6D0305] p-3 bg-[#F6F1EB]">
               <div className="relative w-full h-full overflow-hidden">
                 <Image
-                  src="/dhruv-portrait.jpg"
+                  src="/images/dhruv-cutout.png"
                   alt="Dhruv Pathak"
                   fill
                   sizes="(max-width: 768px) 100vw, 400px"
-                  className="object-cover object-top grayscale contrast-125"
+                  className="object-contain object-bottom contrast-105"
                 />
               </div>
             </div>

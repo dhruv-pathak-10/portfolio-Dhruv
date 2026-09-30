@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import FooterEditorial from "@/components/FooterEditorial";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { getBreadcrumbJsonLd, getProjectJsonLd } from "@/lib/jsonld";
 import { CASE_STUDIES } from "@/data/portfolioData";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
@@ -9,13 +11,35 @@ export const metadata: Metadata = {
   title: "Case Study: Production Voice AI Calling Agent — Dhruv Pathak",
   description:
     "Production-grade inbound and outbound Voice AI agents with custom personas, ElevenLabs conversational voice synthesis, HubSpot CRM integration, and calendar booking.",
+  alternates: {
+    canonical: "https://itsdhruv.online/work/voice-ai",
+  },
+  openGraph: {
+    title: "Case Study: Production Voice AI Calling Agent — Dhruv Pathak",
+    description: "Production-grade Voice AI agents with sub-2s conversational turn latency, dynamic tool-calling, and automated booking.",
+    url: "https://itsdhruv.online/work/voice-ai",
+  },
 };
 
 export default function VoiceAiCaseStudyPage() {
   const study = CASE_STUDIES.find((c) => c.slug === "voice-ai")!;
+  const breadcrumbs = getBreadcrumbJsonLd([
+    { name: "Home", item: "/" },
+    { name: "Work", item: "/work" },
+    { name: "Voice AI Calling Agent", item: "/work/voice-ai" },
+  ]);
+  const projectJsonLd = getProjectJsonLd({
+    name: study.title,
+    description: study.problem,
+    url: "/work/voice-ai",
+    technologies: study.technologies,
+    applicationCategory: "TelephonyApplication",
+  });
 
   return (
     <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
+      <JsonLd data={breadcrumbs} />
+      <JsonLd data={projectJsonLd} />
       <Navbar />
 
       <article className="pt-32 pb-24 px-6 md:px-10 max-w-5xl mx-auto">

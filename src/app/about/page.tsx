@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import FooterEditorial from "@/components/FooterEditorial";
 import Image from "next/image";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { getBreadcrumbJsonLd, getPersonJsonLd } from "@/lib/jsonld";
 import { ONBOARDING_ROADMAP, EDUCATION } from "@/data/portfolioData";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
@@ -10,11 +12,27 @@ export const metadata: Metadata = {
   title: "About Dhruv Pathak — Operating Philosophy & Background",
   description:
     "AI Solutions Engineer working between business problems and technical execution. Read Dhruv's operating principles, value pillars, and 30-day onboarding roadmap.",
+  alternates: {
+    canonical: "https://itsdhruv.online/about",
+  },
+  openGraph: {
+    title: "About Dhruv Pathak — Operating Philosophy & Background",
+    description: "Operating principles, technical philosophy, and commercial impact delivered by Dhruv Pathak.",
+    url: "https://itsdhruv.online/about",
+  },
 };
 
 export default function AboutPage() {
+  const breadcrumbs = getBreadcrumbJsonLd([
+    { name: "Home", item: "/" },
+    { name: "About", item: "/about" },
+  ]);
+  const personJsonLd = getPersonJsonLd();
+
   return (
     <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
+      <JsonLd data={breadcrumbs} />
+      <JsonLd data={personJsonLd} />
       <Navbar />
 
       <section className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto">
@@ -44,11 +62,11 @@ export default function AboutPage() {
             <div className="border-2 border-[#6D0305] p-3 bg-[#FCF7F1]">
               <div className="relative aspect-[4/5] w-full overflow-hidden">
                 <Image
-                  src="/dhruv-portrait.jpg"
+                  src="/images/dhruv-cutout.png"
                   alt="Dhruv Pathak"
                   fill
                   sizes="(max-width: 768px) 100vw, 450px"
-                  className="object-cover object-top contrast-[1.05]"
+                  className="object-contain object-bottom contrast-[1.02]"
                 />
               </div>
             </div>

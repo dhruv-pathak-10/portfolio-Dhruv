@@ -1,0 +1,126 @@
+{
+  "entity": "Dhruv Pathak",
+  "domain": "https://itsdhruv.online",
+  "audit_timestamp": "2026-09-30T17:50:00Z",
+  "total_routes_checked": 15,
+  "health_score": 98,
+  "checks": [
+    {
+      "check": "Canonical Domain Enforcement",
+      "status": "PASS",
+      "severity": "CRITICAL",
+      "route": "/*",
+      "evidence": "Every route has explicit alternates.canonical pointing to https://itsdhruv.online with matching metadataBase.",
+      "recommendation": "Maintain strict canonical configuration on any newly added route.",
+      "implemented": true
+    },
+    {
+      "check": "XML Sitemap Generation",
+      "status": "PASS",
+      "severity": "CRITICAL",
+      "route": "/sitemap.xml",
+      "evidence": "src/app/sitemap.ts dynamically yields all 15 indexable URLs with priority weights and lastModified dates.",
+      "recommendation": "Ensure any new case study or pillar page is registered in sitemap.ts.",
+      "implemented": true
+    },
+    {
+      "check": "Robots Protocol Directives",
+      "status": "PASS",
+      "severity": "CRITICAL",
+      "route": "/robots.txt",
+      "evidence": "src/app/robots.ts allows all major crawlers, disallows /api/, and links directly to https://itsdhruv.online/sitemap.xml.",
+      "recommendation": "Keep robots.txt dynamically managed via Next.js metadata route.",
+      "implemented": true
+    },
+    {
+      "check": "Person & WebSite Structured Data",
+      "status": "PASS",
+      "severity": "HIGH",
+      "route": "/",
+      "evidence": "schema.org/Person and WebSite JSON-LD injected in RootLayout head with alumniOf, jobTitle, address, sameAs.",
+      "recommendation": "Update knowsAbout array as new capabilities or certifications are acquired.",
+      "implemented": true
+    },
+    {
+      "check": "BreadcrumbList Schema",
+      "status": "PASS",
+      "severity": "MEDIUM",
+      "route": "All sub-routes",
+      "evidence": "BreadcrumbList JSON-LD implemented on all pillars, case studies, resume, about, and methodology pages.",
+      "recommendation": "Verify search console rich snippet reporting after site indexing.",
+      "implemented": true
+    },
+    {
+      "check": "SoftwareApplication / Project Schema",
+      "status": "PASS",
+      "severity": "MEDIUM",
+      "route": "/work/*",
+      "evidence": "All 4 individual case studies export SoftwareApplication / CreativeWork schemas with technologies and operatingSystem.",
+      "recommendation": "Apply to future case studies.",
+      "implemented": true
+    },
+    {
+      "check": "Server-Side Metadata on Interactive Pages",
+      "status": "PASS",
+      "severity": "HIGH",
+      "route": "/contact",
+      "evidence": "Refactored /contact into Server Component exporting metadata and delegating form state to ContactForm.tsx.",
+      "recommendation": "Never declare 'use client' at the page level when route metadata is required.",
+      "implemented": true
+    },
+    {
+      "check": "Topical Authority Pillar Routes",
+      "status": "PASS",
+      "severity": "HIGH",
+      "route": ["/ai-adoption", "/ai-solutions", "/solution-architecture", "/ai-automation", "/voice-ai"],
+      "evidence": "5 distinct high-value pillar pages established with human-first copy answering WHO, WHAT, HOW, PROOF, TECHNOLOGY, OUTCOMES.",
+      "recommendation": "Link from future technical articles or LinkedIn posts to these pillar URLs.",
+      "implemented": true
+    },
+    {
+      "check": "Internal Link Graph & Navigation",
+      "status": "PASS",
+      "severity": "MEDIUM",
+      "route": "/*",
+      "evidence": "Navbar and Footer updated with canonical links (/work, /ai-adoption, /methodology, /about, /resume, /contact) replacing broken hash fragments.",
+      "recommendation": "Maintain descriptive anchor text on all cross-page contextual links.",
+      "implemented": true
+    },
+    {
+      "check": "Web App Manifest",
+      "status": "PASS",
+      "severity": "LOW",
+      "route": "/manifest.webmanifest",
+      "evidence": "src/app/manifest.ts generates valid manifest with theme_color #6D0305 and background_color #F6F1EB.",
+      "recommendation": "Test mobile PWA add-to-home-screen prompt.",
+      "implemented": true
+    },
+    {
+      "check": "Heading Hierarchy (H1)",
+      "status": "PASS",
+      "severity": "HIGH",
+      "route": "All pages",
+      "evidence": "Exactly one semantic H1 tag per page.",
+      "recommendation": "Never use multiple H1 tags inside sub-components.",
+      "implemented": true
+    },
+    {
+      "check": "Image Optimization & Alt Text",
+      "status": "PASS",
+      "severity": "MEDIUM",
+      "route": "All pages",
+      "evidence": "Next.js Image component used with explicit sizes, object-contain, priority on hero, and descriptive alt attributes.",
+      "recommendation": "Maintain descriptive alt text for any future graphics or diagrams.",
+      "implemented": true
+    },
+    {
+      "check": "25,000 Search Targets Universe",
+      "status": "PASS",
+      "severity": "HIGH",
+      "route": "/seo/keyword-universe.json",
+      "evidence": "Generated exactly 25,000 categorized search targets mapped to Tiers 1-5, search intents, roles, problems, and locations.",
+      "recommendation": "Use dataset for targeting future content and tracking recruiter search trends.",
+      "implemented": true
+    }
+  ]
+}

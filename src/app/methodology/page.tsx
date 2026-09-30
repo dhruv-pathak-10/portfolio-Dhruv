@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import FooterEditorial from "@/components/FooterEditorial";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { getBreadcrumbJsonLd } from "@/lib/jsonld";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -8,9 +10,21 @@ export const metadata: Metadata = {
   title: "AI Adoption Methodology & Client Discovery Framework — Dhruv Pathak",
   description:
     "The 7-step systematic consulting framework for translating ambiguous client friction into executable, high-ROI AI solutions with guaranteed frontline adoption.",
+  alternates: {
+    canonical: "https://itsdhruv.online/methodology",
+  },
+  openGraph: {
+    title: "AI Adoption Methodology & Client Discovery Framework — Dhruv Pathak",
+    description: "The 7-step systematic consulting framework for turning ambiguous client friction into high-ROI production systems.",
+    url: "https://itsdhruv.online/methodology",
+  },
 };
 
 export default function MethodologyPage() {
+  const breadcrumbs = getBreadcrumbJsonLd([
+    { name: "Home", item: "/" },
+    { name: "Methodology", item: "/methodology" },
+  ]);
   const steps = [
     {
       num: "01",
@@ -65,6 +79,7 @@ export default function MethodologyPage() {
 
   return (
     <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
+      <JsonLd data={breadcrumbs} />
       <Navbar />
 
       <section className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto">

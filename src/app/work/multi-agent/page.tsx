@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import FooterEditorial from "@/components/FooterEditorial";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { getBreadcrumbJsonLd, getProjectJsonLd } from "@/lib/jsonld";
 import { CASE_STUDIES } from "@/data/portfolioData";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
@@ -9,13 +11,35 @@ export const metadata: Metadata = {
   title: "Case Study: Multi-Agent Business Automation Platform — Dhruv Pathak",
   description:
     "Autonomous multi-agent system coordinating research, qualification, and content synthesis across web sources, CRMs, and outbound channels.",
+  alternates: {
+    canonical: "https://itsdhruv.online/work/multi-agent",
+  },
+  openGraph: {
+    title: "Case Study: Multi-Agent Business Automation Platform — Dhruv Pathak",
+    description: "Multi-agent asynchronous platform orchestrating company research, ICP qualification, and CRM sequence creation.",
+    url: "https://itsdhruv.online/work/multi-agent",
+  },
 };
 
 export default function MultiAgentCaseStudyPage() {
   const study = CASE_STUDIES.find((c) => c.slug === "multi-agent")!;
+  const breadcrumbs = getBreadcrumbJsonLd([
+    { name: "Home", item: "/" },
+    { name: "Work", item: "/work" },
+    { name: "Multi-Agent Automation", item: "/work/multi-agent" },
+  ]);
+  const projectJsonLd = getProjectJsonLd({
+    name: study.title,
+    description: study.problem,
+    url: "/work/multi-agent",
+    technologies: study.technologies,
+    applicationCategory: "BusinessAutomationApplication",
+  });
 
   return (
     <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
+      <JsonLd data={breadcrumbs} />
+      <JsonLd data={projectJsonLd} />
       <Navbar />
 
       <article className="pt-32 pb-24 px-6 md:px-10 max-w-5xl mx-auto">

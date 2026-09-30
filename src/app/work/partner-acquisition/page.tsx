@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import FooterEditorial from "@/components/FooterEditorial";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { getBreadcrumbJsonLd, getProjectJsonLd } from "@/lib/jsonld";
 import { CASE_STUDIES } from "@/data/portfolioData";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
@@ -9,13 +11,35 @@ export const metadata: Metadata = {
   title: "Case Study: Hyperlocal Partner Acquisition Engine — Dhruv Pathak",
   description:
     "AI-powered RevOps and partnership acquisition pipeline for Clozzet India, reducing manual prospecting by 60% and 3x-ing qualified brand leads.",
+  alternates: {
+    canonical: "https://itsdhruv.online/work/partner-acquisition",
+  },
+  openGraph: {
+    title: "Case Study: Hyperlocal Partner Acquisition Engine — Dhruv Pathak",
+    description: "Automated brand partnership acquisition engine for Clozzet India reducing manual prospecting by 60%.",
+    url: "https://itsdhruv.online/work/partner-acquisition",
+  },
 };
 
 export default function PartnerAcquisitionCaseStudyPage() {
   const study = CASE_STUDIES.find((c) => c.slug === "partner-acquisition")!;
+  const breadcrumbs = getBreadcrumbJsonLd([
+    { name: "Home", item: "/" },
+    { name: "Work", item: "/work" },
+    { name: "Partner Acquisition Engine", item: "/work/partner-acquisition" },
+  ]);
+  const projectJsonLd = getProjectJsonLd({
+    name: study.title,
+    description: study.problem,
+    url: "/work/partner-acquisition",
+    technologies: study.technologies,
+    applicationCategory: "RevOpsApplication",
+  });
 
   return (
     <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
+      <JsonLd data={breadcrumbs} />
+      <JsonLd data={projectJsonLd} />
       <Navbar />
 
       <article className="pt-32 pb-24 px-6 md:px-10 max-w-5xl mx-auto">
