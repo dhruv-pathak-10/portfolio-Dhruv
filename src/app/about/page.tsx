@@ -1,9 +1,9 @@
 import Navbar from "@/components/Navbar";
-import FinalCTA from "@/components/FinalCTA";
-import CustomCursor from "@/components/CustomCursor";
+import FooterEditorial from "@/components/FooterEditorial";
+import Image from "next/image";
 import Link from "next/link";
-import { PROFILE, ONBOARDING_ROADMAP, EDUCATION } from "@/data/portfolioData";
-import { Compass, Rocket, ShieldCheck, Terminal, GraduationCap, ArrowRight } from "lucide-react";
+import { ONBOARDING_ROADMAP, EDUCATION } from "@/data/portfolioData";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,143 +14,139 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#080A0F] text-[#F5F7FA]">
-      <CustomCursor />
+    <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
       <Navbar />
 
-      <section className="pt-36 pb-20 px-6 md:px-10 max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-widest bg-white/[0.04] border border-white/10 text-[#4F7CFF] mb-4">
-            <Compass className="w-3.5 h-3.5" />
-            <span>EXECUTIVE BACKGROUND &amp; PHILOSOPHY</span>
+      <section className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto">
+        {/* Editorial Header */}
+        <div className="border-b border-[#6D0305]/15 pb-8 mb-16 sm:mb-20">
+          <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#450C0A] uppercase mb-6">
+            <span>ABOUT / OPERATING THESIS</span>
+            <span>AHMEDABAD, INDIA</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
-            I WORK BETWEEN TWO WORLDS.
+          <h1 className="font-display text-5xl sm:text-7xl md:text-9xl text-[#6D0305] uppercase tracking-tight leading-[0.9]">
+            I WORK BETWEEN
+            <span className="block text-[#B12223]">TWO WORLDS.</span>
           </h1>
 
-          <p className="mt-4 text-lg text-[#8B93A3] font-mono leading-relaxed">
+          <p className="mt-6 text-base sm:text-xl text-[#450C0A] font-medium max-w-3xl font-sans">
             &ldquo;I understand the business problem well enough to ask better questions,
             and I understand the technology well enough to turn those questions into
             executable solutions.&rdquo;
           </p>
         </div>
 
-        {/* Narrative Section */}
-        <div className="space-y-12 text-sm sm:text-base text-[#8B93A3] leading-relaxed mb-20">
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#0E121B] border border-white/[0.08] shadow-2xl">
-            <h2 className="text-xl font-mono font-bold text-white mb-4">
-              The Problem with Standard AI Implementation
-            </h2>
-            <p className="mb-4">
-              Most software teams make one of two fundamental mistakes when approaching AI.
-              They either build technically elaborate systems that solve irrelevant bottlenecks,
-              or they purchase off-the-shelf SaaS tools that frontline staff abandon within 30 days
-              because the software doesn&apos;t fit the daily workflow.
-            </p>
-            <p>
-              I position myself at the intersection of both disciplines: uncovering the operational
-              friction with executives and operators, designing modular architectures with deterministic
-              guardrails, and ensuring frontline team members experience immediate leverage.
-            </p>
-          </div>
-
-          {/* Three Core Value Pillars */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-[#0E121B] border border-white/[0.08]">
-              <span className="text-xs font-mono font-bold text-[#4F7CFF] block mb-2">
-                PILLAR 01
-              </span>
-              <h3 className="text-lg font-bold text-white mb-2 font-mono">
-                Client Thinking
-              </h3>
-              <p className="text-xs text-[#8B93A3] leading-relaxed font-sans">
-                I can start with an ambiguous, messy business problem instead of waiting
-                for a clean technical specification. I listen to operational friction and identify
-                where true leverage sits.
-              </p>
+        {/* 2-Column Editorial Grid with Dhruv's Portrait */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-24">
+          {/* Left Column: Portrait */}
+          <div className="lg:col-span-5 relative">
+            <div className="border-2 border-[#6D0305] p-3 bg-[#FCF7F1]">
+              <div className="relative aspect-[4/5] w-full overflow-hidden">
+                <Image
+                  src="/dhruv-portrait.jpg"
+                  alt="Dhruv Pathak"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 450px"
+                  className="object-cover object-top contrast-[1.05]"
+                />
+              </div>
             </div>
-
-            <div className="p-6 rounded-2xl bg-[#0E121B] border border-white/[0.08]">
-              <span className="text-xs font-mono font-bold text-[#4F7CFF] block mb-2">
-                PILLAR 02
-              </span>
-              <h3 className="text-lg font-bold text-white mb-2 font-mono">
-                Technical Depth
-              </h3>
-              <p className="text-xs text-[#8B93A3] leading-relaxed font-sans">
-                I understand LLM orchestration, voice AI, agents, APIs, and deterministic tools
-                deeply enough to turn a commercial opportunity into a realistic, cost-effective
-                technical roadmap.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-[#0E121B] border border-white/[0.08]">
-              <span className="text-xs font-mono font-bold text-[#4F7CFF] block mb-2">
-                PILLAR 03
-              </span>
-              <h3 className="text-lg font-bold text-white mb-2 font-mono">
-                Execution &amp; Adoption
-              </h3>
-              <p className="text-xs text-[#8B93A3] leading-relaxed font-sans">
-                I am comfortable moving across the entire cycle: scoping requirements, building
-                architectures, configuring integrations, testing edge cases, and driving team
-                adoption.
-              </p>
+            <div className="mt-4 flex items-center justify-between text-xs font-mono text-[#78716C]">
+              <span>DHRUV PATHAK</span>
+              <span>AI SOLUTIONS ENGINEER</span>
             </div>
           </div>
 
-          {/* 30-Day Onboarding Plan */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#0E121B] border border-white/[0.08]">
-            <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase mb-2">
-              <Rocket className="w-4 h-4" />
-              <span>SPEED TO PRODUCTIVITY</span>
+          {/* Right Column: In-Depth Philosophy */}
+          <div className="lg:col-span-7 space-y-8 font-sans">
+            <div className="border border-[#6D0305]/20 bg-[#FCF7F1] p-8 sm:p-10 space-y-4">
+              <h2 className="font-display text-2xl sm:text-3xl text-[#6D0305] uppercase tracking-tight">
+                The Problem with Standard AI Implementation
+              </h2>
+              <p className="text-sm text-[#450C0A] leading-relaxed">
+                Most software teams make one of two fundamental mistakes when approaching AI.
+                They either build technically elaborate systems that solve irrelevant bottlenecks,
+                or they purchase off-the-shelf SaaS tools that frontline staff abandon within 30 days
+                because the software doesn&apos;t fit the daily workflow.
+              </p>
+              <p className="text-sm text-[#450C0A] leading-relaxed">
+                I position myself at the intersection of both disciplines: uncovering the operational
+                friction with executives and operators, designing modular architectures with deterministic
+                guardrails, and ensuring frontline team members experience immediate leverage.
+              </p>
             </div>
-            <h2 className="text-2xl font-bold text-white mb-6">
-              30-Day Operational Onboarding Roadmap
-            </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {ONBOARDING_ROADMAP.map((r) => (
-                <div
-                  key={r.period}
-                  className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06]"
-                >
-                  <span className="text-xs font-mono font-bold text-[#4F7CFF] block mb-1">
-                    {r.period}
+            {/* Three Core Value Pillars */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="p-6 border border-[#6D0305]/20 bg-[#FCF7F1] space-y-2">
+                <span className="font-display text-2xl text-[#B12223]">01</span>
+                <h3 className="font-display text-lg text-[#6D0305] uppercase tracking-tight">
+                  Business-First Discovery
+                </h3>
+                <p className="text-xs text-[#78716C] leading-relaxed">
+                  Never recommend or build AI without first quantifying the friction, unit economics, and operator workflow.
+                </p>
+              </div>
+
+              <div className="p-6 border border-[#6D0305]/20 bg-[#FCF7F1] space-y-2">
+                <span className="font-display text-2xl text-[#B12223]">02</span>
+                <h3 className="font-display text-lg text-[#6D0305] uppercase tracking-tight">
+                  Deterministic Guardrails
+                </h3>
+                <p className="text-xs text-[#78716C] leading-relaxed">
+                  Hallucinations and unconstrained prompts belong in demos. Production systems require structured schemas and fallback states.
+                </p>
+              </div>
+
+              <div className="p-6 border border-[#6D0305]/20 bg-[#FCF7F1] space-y-2">
+                <span className="font-display text-2xl text-[#B12223]">03</span>
+                <h3 className="font-display text-lg text-[#6D0305] uppercase tracking-tight">
+                  Frontline Adoption
+                </h3>
+                <p className="text-xs text-[#78716C] leading-relaxed">
+                  A model only delivers value when real humans trust it enough to make it part of their daily habit.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 30-Day Onboarding Roadmap */}
+        <div className="border-t border-[#6D0305]/15 pt-16">
+          <div className="border-b border-[#6D0305]/15 pb-4 mb-12 flex items-baseline justify-between">
+            <span className="font-display text-3xl sm:text-4xl text-[#6D0305] uppercase tracking-tight">
+              30-DAY VALUE ACCELERATION
+            </span>
+            <span className="text-xs font-mono tracking-widest text-[#B12223] uppercase font-semibold">
+              HOW I DELIVER VALUE FROM DAY 1
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {ONBOARDING_ROADMAP.map((phase) => (
+              <div
+                key={phase.period}
+                className="border border-[#6D0305]/20 bg-[#FCF7F1] p-6 space-y-4"
+              >
+                <div className="flex items-center justify-between border-b border-[#6D0305]/15 pb-3">
+                  <span className="font-display text-xl text-[#B12223]">
+                    {phase.period}
                   </span>
-                  <h4 className="text-sm font-bold text-white font-mono mb-2">
-                    {r.title}
-                  </h4>
-                  <p className="text-xs text-[#8B93A3] font-sans leading-relaxed">
-                    {r.desc}
-                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Education & Academic Rigor */}
-          <div className="p-8 rounded-2xl bg-[#0E121B] border border-white/[0.08]">
-            <div className="flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-violet-400 uppercase mb-2">
-              <GraduationCap className="w-4 h-4" />
-              <span>FOUNDATION</span>
-            </div>
-            <h2 className="text-xl font-bold text-white mb-2">
-              {EDUCATION.degree}
-            </h2>
-            <p className="text-xs font-mono text-[#8B93A3] mb-4">
-              {EDUCATION.institution} · {EDUCATION.expectedYear} · Focus: {EDUCATION.focus}
-            </p>
-            <p className="text-xs text-[#8B93A3] font-sans">
-              Led a 6-member team in the Smart India Hackathon solving automated plagiarism detection.
-            </p>
+                <h4 className="font-display text-base text-[#6D0305] uppercase tracking-tight">
+                  {phase.title}
+                </h4>
+                <p className="text-xs sm:text-sm text-[#450C0A] leading-relaxed font-sans">
+                  {phase.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <FinalCTA />
+      <FooterEditorial />
     </main>
   );
 }

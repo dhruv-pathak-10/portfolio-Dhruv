@@ -1,8 +1,7 @@
 import Navbar from "@/components/Navbar";
-import FinalCTA from "@/components/FinalCTA";
-import CustomCursor from "@/components/CustomCursor";
-import { PROFILE, EXPERIENCE_ITEMS, EDUCATION, PROOF_METRICS } from "@/data/portfolioData";
-import { Download, ExternalLink, FileText, CheckCircle2, ShieldCheck, Mail, Phone, MapPin, Globe } from "lucide-react";
+import FooterEditorial from "@/components/FooterEditorial";
+import { EXPERIENCE_ITEMS, EDUCATION, PROOF_METRICS } from "@/data/portfolioData";
+import { Download, ExternalLink, FileText, CheckCircle2, Mail, Phone, MapPin, Globe } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,22 +14,20 @@ export default function ResumePage() {
   const resumePdfPath = "/Dhruv_Pathak_AI_Adoption_Specialist_Resume.pdf";
 
   return (
-    <main className="min-h-screen bg-[#080A0F] text-[#F5F7FA]">
-      <CustomCursor />
+    <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
       <Navbar />
 
-      <section className="pt-36 pb-20 px-6 md:px-10 max-w-5xl mx-auto">
-        {/* Header & Download Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-8 border-b border-white/[0.08] mb-12">
+      <section className="pt-32 pb-24 px-6 md:px-10 max-w-5xl mx-auto">
+        {/* Header Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-8 border-b border-[#6D0305]/15 mb-12">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-widest bg-white/[0.04] border border-white/10 text-[#4F7CFF] mb-3">
-              <FileText className="w-3.5 h-3.5" />
-              <span>EXECUTIVE RESUME</span>
-            </div>
-            <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white">
+            <span className="text-xs font-mono tracking-widest text-[#B12223] uppercase font-semibold block mb-2">
+              DOCUMENTATION / RESUME
+            </span>
+            <h1 className="font-display text-5xl sm:text-7xl text-[#6D0305] uppercase tracking-tight">
               CURRICULUM VITAE
             </h1>
-            <p className="mt-1 text-sm font-mono text-[#8B93A3]">
+            <p className="mt-2 text-xs sm:text-sm font-mono text-[#78716C]">
               AI Solutions Engineer · AI Adoption &amp; Solution Architecture
             </p>
           </div>
@@ -40,54 +37,54 @@ export default function ResumePage() {
               href={resumePdfPath}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#4F7CFF] text-white text-xs font-mono font-semibold hover:bg-[#3d6bf0] shadow-md shadow-[#4F7CFF]/25 transition-all"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-[#B12223] text-[#FCF7F1] text-xs font-mono font-semibold uppercase tracking-wider hover:bg-[#6D0305] transition-colors"
             >
-              <span>OPEN PDF</span>
+              <span>VIEW PDF</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
 
             <a
               href={resumePdfPath}
               download="Dhruv_Pathak_AI_Adoption_Specialist_Resume.pdf"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white/[0.05] border border-white/10 text-white text-xs font-mono font-medium hover:bg-white/10 transition-all"
+              className="inline-flex items-center gap-2 px-5 py-3 border-2 border-[#6D0305] text-[#6D0305] text-xs font-mono font-semibold uppercase tracking-wider hover:bg-[#6D0305] hover:text-[#FCF7F1] transition-colors"
             >
-              <span>DOWNLOAD PDF</span>
+              <span>DOWNLOAD</span>
               <Download className="w-3.5 h-3.5" />
             </a>
           </div>
         </div>
 
-        {/* Structured Web Representation of Resume */}
-        <div className="rounded-3xl bg-[#0E121B] border border-white/[0.08] p-8 sm:p-12 shadow-2xl space-y-12">
+        {/* Structured Web CV Card */}
+        <div className="border border-[#6D0305]/20 bg-[#FCF7F1] p-8 sm:p-14 space-y-12 shadow-sm">
           {/* Header Info */}
-          <div className="pb-8 border-b border-white/[0.08]">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="pb-8 border-b border-[#6D0305]/15">
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
               <div>
-                <h2 className="text-3xl font-black tracking-tight text-white">
+                <h2 className="font-display text-4xl sm:text-5xl text-[#6D0305] uppercase tracking-tight">
                   DHRUV PATHAK
                 </h2>
-                <div className="text-xs font-mono text-[#4F7CFF] mt-1 font-semibold">
+                <div className="text-xs font-mono text-[#B12223] mt-1 font-semibold tracking-wider uppercase">
                   AI Solutions Engineer · AI Adoption Specialist · Solution Architect
                 </div>
               </div>
 
-              <div className="space-y-1 text-xs font-mono text-[#8B93A3]">
+              <div className="space-y-1 text-xs font-mono text-[#450C0A]">
                 <div className="flex items-center gap-2">
-                  <Mail className="w-3.5 h-3.5 text-[#4F7CFF]" />
+                  <Mail className="w-3.5 h-3.5 text-[#B12223]" />
                   <span>work.dhruvpathak@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                  <Phone className="w-3.5 h-3.5 text-[#B12223]" />
                   <span>+91 63546 66048</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Globe className="w-3.5 h-3.5 text-[#8B93A3]" />
+                  <Globe className="w-3.5 h-3.5 text-[#B12223]" />
                   <span>itsdhruv.online · Ahmedabad, India</span>
                 </div>
               </div>
             </div>
 
-            <p className="mt-6 text-xs sm:text-sm text-[#8B93A3] leading-relaxed font-sans">
+            <p className="mt-6 text-sm text-[#450C0A] leading-relaxed font-sans">
               AI solutions engineer with hands-on experience designing and deploying production
               Voice AI agents (inbound/outbound), multi-agent architectures, and agentic automation
               workflows. Manages the complete client engagement lifecycle: discovery, requirements
@@ -97,55 +94,64 @@ export default function ResumePage() {
 
           {/* Key Competencies Matrix */}
           <div>
-            <h3 className="text-xs font-mono tracking-widest text-[#4F7CFF] uppercase font-bold mb-4">
-              CORE COMPETENCIES &amp; CAPABILITIES
+            <h3 className="text-xs font-mono tracking-widest text-[#B12223] uppercase font-bold mb-4">
+              CORE COMPETENCIES
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-xs font-mono">
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div className="text-white font-bold mb-1">AI Agents &amp; Voice</div>
-                <div className="text-[#8B93A3]">
-                  ElevenLabs Voice AI, LangChain, LangGraph, CrewAI, RAG, Prompt Engineering
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 text-xs font-mono text-[#450C0A]">
+              <div className="flex items-center gap-2 p-2.5 bg-[#EADEDA]/40 border border-[#6D0305]/10">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#B12223] shrink-0" />
+                <span>Voice AI Engineering</span>
               </div>
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div className="text-white font-bold mb-1">Automation &amp; RevOps</div>
-                <div className="text-[#8B93A3]">
-                  n8n, Make, HubSpot CRM, Apollo.io, WhatsApp Business API, Outbound Pipelines
-                </div>
+              <div className="flex items-center gap-2 p-2.5 bg-[#EADEDA]/40 border border-[#6D0305]/10">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#B12223] shrink-0" />
+                <span>Multi-Agent Automations</span>
               </div>
-              <div className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div className="text-white font-bold mb-1">Client Delivery &amp; Architecture</div>
-                <div className="text-[#8B93A3]">
-                  End-to-End SDLC, Requirements Gathering, US/UK Stakeholder Comms, RBAC Systems
-                </div>
+              <div className="flex items-center gap-2 p-2.5 bg-[#EADEDA]/40 border border-[#6D0305]/10">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#B12223] shrink-0" />
+                <span>Solution Architecture</span>
+              </div>
+              <div className="flex items-center gap-2 p-2.5 bg-[#EADEDA]/40 border border-[#6D0305]/10">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#B12223] shrink-0" />
+                <span>Client Discovery &amp; Scoping</span>
+              </div>
+              <div className="flex items-center gap-2 p-2.5 bg-[#EADEDA]/40 border border-[#6D0305]/10">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#B12223] shrink-0" />
+                <span>RevOps &amp; CRM Integration</span>
+              </div>
+              <div className="flex items-center gap-2 p-2.5 bg-[#EADEDA]/40 border border-[#6D0305]/10">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#B12223] shrink-0" />
+                <span>Deterministic Guardrails</span>
               </div>
             </div>
           </div>
 
-          {/* Experience Section */}
+          {/* Experience Chronology */}
           <div>
-            <h3 className="text-xs font-mono tracking-widest text-[#4F7CFF] uppercase font-bold mb-6">
-              OPERATIONAL EXPERIENCE
+            <h3 className="text-xs font-mono tracking-widest text-[#B12223] uppercase font-bold mb-6">
+              EXPERIENCE
             </h3>
             <div className="space-y-8">
-              {EXPERIENCE_ITEMS.map((item) => (
-                <div key={item.id} className="pb-6 border-b border-white/[0.05] last:border-0">
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-                    <h4 className="text-base font-bold text-white">
+              {EXPERIENCE_ITEMS.map((item, idx) => (
+                <div key={idx} className="border-l-2 border-[#B12223] pl-6 space-y-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h4 className="font-display text-xl sm:text-2xl text-[#6D0305] uppercase tracking-tight">
                       {item.role}
                     </h4>
-                    <span className="text-xs font-mono text-[#8B93A3]">
+                    <span className="text-xs font-mono text-[#78716C]">
                       {item.period}
                     </span>
                   </div>
-                  <div className="text-xs font-mono text-[#4F7CFF] mb-3">
+                  <div className="text-xs font-mono text-[#B12223] font-semibold">
                     {item.company} · {item.location}
                   </div>
-                  <ul className="space-y-2 text-xs text-[#8B93A3] font-sans">
-                    {item.highlights.map((h, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="text-[#4F7CFF] font-mono mt-0.5">•</span>
-                        <span>{h}</span>
+                  <p className="text-xs sm:text-sm text-[#450C0A] leading-relaxed pt-1 font-sans">
+                    {item.summary}
+                  </p>
+                  <ul className="space-y-1.5 pt-2">
+                    {item.highlights.map((highlight, aIdx) => (
+                      <li key={aIdx} className="text-xs font-sans text-[#78716C] flex items-start gap-2">
+                        <span className="text-[#B12223] font-bold">—</span>
+                        <span>{highlight}</span>
                       </li>
                     ))}
                   </ul>
@@ -154,65 +160,22 @@ export default function ResumePage() {
             </div>
           </div>
 
-          {/* Education & Certifications */}
-          <div className="pt-6 border-t border-white/[0.08]">
-            <h3 className="text-xs font-mono tracking-widest text-[#4F7CFF] uppercase font-bold mb-4">
-              EDUCATION &amp; CERTIFICATIONS
+          {/* Education */}
+          <div className="border-t border-[#6D0305]/15 pt-8">
+            <h3 className="text-xs font-mono tracking-widest text-[#B12223] uppercase font-bold mb-3">
+              EDUCATION &amp; RECOGNITION
             </h3>
-            <div className="space-y-4">
-              <div>
-                <div className="text-sm font-bold text-white">
-                  {EDUCATION.degree}
-                </div>
-                <div className="text-xs font-mono text-[#8B93A3]">
-                  {EDUCATION.institution} | {EDUCATION.expectedYear}
-                </div>
-                <div className="text-xs text-[#8B93A3] mt-1 font-sans">
-                  Focus: {EDUCATION.focus} · Team Lead in Smart India Hackathon
-                </div>
-              </div>
-
-              <div className="pt-2">
-                <span className="text-xs font-mono text-white/60 block mb-2">
-                  Specialized Certifications:
-                </span>
-                <div className="flex flex-wrap gap-2 text-xs font-mono">
-                  {EDUCATION.certifications.map((c) => (
-                    <span
-                      key={c}
-                      className="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/10 text-white/80"
-                    >
-                      {c}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            <div className="text-sm font-sans text-[#450C0A]">
+              <span className="font-bold text-[#6D0305]">{EDUCATION.degree}</span> — {EDUCATION.institution} ({EDUCATION.expectedYear})
             </div>
-          </div>
-        </div>
-
-        {/* Embedded PDF Viewer */}
-        <div className="mt-16">
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-mono font-bold tracking-widest text-white uppercase">
-              DOCUMENT PREVIEW
-            </span>
-            <span className="text-xs font-mono text-[#8B93A3]">
-              PDF Source Document
-            </span>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 overflow-hidden bg-[#0E121B] h-[800px] w-full">
-            <iframe
-              src={`${resumePdfPath}#toolbar=0`}
-              className="w-full h-full border-none"
-              title="Dhruv Pathak Resume PDF"
-            />
+            <div className="text-xs font-mono text-[#78716C] mt-1">
+              Focus: {EDUCATION.focus} · Smart India Hackathon Team Lead
+            </div>
           </div>
         </div>
       </section>
 
-      <FinalCTA />
+      <FooterEditorial />
     </main>
   );
 }

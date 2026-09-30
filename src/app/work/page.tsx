@@ -1,135 +1,131 @@
 import Navbar from "@/components/Navbar";
-import FinalCTA from "@/components/FinalCTA";
-import CustomCursor from "@/components/CustomCursor";
+import FooterEditorial from "@/components/FooterEditorial";
 import Link from "next/link";
 import { CASE_STUDIES } from "@/data/portfolioData";
-import { ArrowRight, CheckCircle2, Cpu, ExternalLink } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Selected Work & Systems Architecture",
+  title: "Selected Work & Systems Architecture — Dhruv Pathak",
   description:
     "Production-grade AI solutions, Voice AI calling agents, multi-agent business automations, and institutional ERP architectures deployed by Dhruv Pathak.",
 };
 
 export default function WorkIndexPage() {
   return (
-    <main className="min-h-screen bg-[#080A0F] text-[#F5F7FA]">
-      <CustomCursor />
+    <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
       <Navbar />
 
-      <section className="pt-36 pb-20 px-6 md:px-10 max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-widest bg-white/[0.04] border border-white/10 text-[#4F7CFF] mb-4">
-            <Cpu className="w-3.5 h-3.5" />
-            <span>PORTFOLIO / CASE STUDIES</span>
+      <section className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto">
+        {/* Editorial Page Header */}
+        <div className="border-b border-[#6D0305]/15 pb-8 mb-16 sm:mb-20">
+          <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#450C0A] uppercase mb-6">
+            <span>INDEX / ARCHIVES</span>
+            <span>VOL. 2024–2026</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white">
-            SELECTED SYSTEMS &amp; ARCHITECTURES
+          <h1 className="font-display text-5xl sm:text-7xl md:text-9xl text-[#6D0305] uppercase tracking-tight leading-[0.9]">
+            SELECTED SYSTEMS &amp;
+            <span className="block text-[#B12223]">ARCHITECTURES.</span>
           </h1>
 
-          <p className="mt-4 text-lg text-[#8B93A3] font-mono leading-relaxed">
+          <p className="mt-6 text-base sm:text-xl text-[#450C0A] font-medium max-w-3xl font-sans">
             Every project below represents a real business bottleneck translated into a
-            production deployment with defensible metrics.
+            production deployment with defensible commercial ROI and frontline adoption.
           </p>
         </div>
 
-        {/* Case Studies List */}
-        <div className="space-y-12">
+        {/* Case Studies Editorial Stack */}
+        <div className="space-y-16">
           {CASE_STUDIES.map((study) => (
-            <div
+            <article
               key={study.id}
-              className="rounded-3xl bg-[#0E121B] border border-white/[0.08] p-6 sm:p-10 lg:p-12 hover:border-[#4F7CFF]/40 transition-all duration-300 relative overflow-hidden"
+              className="border border-[#6D0305]/20 bg-[#FCF7F1] p-8 sm:p-12 lg:p-16 hover:border-[#6D0305] transition-colors"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <div className="lg:col-span-8 space-y-4">
-                  <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-bold text-[#4F7CFF]">
-                      CASE {study.number}
-                    </span>
-                    <span className="text-white/20">•</span>
-                    <span className="text-xs font-mono text-emerald-400 font-semibold">
-                      {study.headlineMetric} {study.metricLabel}
-                    </span>
-                  </div>
+              {/* Top Meta Line */}
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#6D0305]/15 pb-4 text-xs font-mono tracking-widest uppercase">
+                <div className="flex items-center gap-3">
+                  <span className="font-display text-2xl sm:text-3xl text-[#B12223]">
+                    {study.number}
+                  </span>
+                  <span className="text-[#6D0305] font-semibold">{study.clientContext}</span>
+                </div>
+                <span className="text-[#78716C]">DEPLOYED ARCHITECTURE</span>
+              </div>
 
-                  <h2 className="text-2xl sm:text-3xl font-bold text-white">
-                    {study.title}
-                  </h2>
+              {/* Title & Subtitle */}
+              <div className="mt-8 mb-10">
+                <h2 className="font-display text-3xl sm:text-5xl text-[#6D0305] uppercase tracking-tight">
+                  {study.title}
+                </h2>
+                <p className="mt-2 text-sm sm:text-base font-mono text-[#B12223]">
+                  {study.subtitle}
+                </p>
+              </div>
 
-                  <p className="text-xs font-mono text-[#8B93A3]">
-                    Client Context: {study.clientContext}
+              {/* 3-Column Editorial Problem / Solution / Impact */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8 border-y border-[#6D0305]/15 font-sans">
+                {/* 1. Problem */}
+                <div className="space-y-2">
+                  <span className="text-[11px] font-mono tracking-widest uppercase text-[#B12223] block font-semibold">
+                    THE BUSINESS PROBLEM
+                  </span>
+                  <p className="text-xs sm:text-sm text-[#450C0A] leading-relaxed">
+                    {study.problem}
                   </p>
+                </div>
 
-                  <p className="text-sm sm:text-base text-[#8B93A3] leading-relaxed">
+                {/* 2. Architecture / Solution */}
+                <div className="space-y-2">
+                  <span className="text-[11px] font-mono tracking-widest uppercase text-[#B12223] block font-semibold">
+                    THE ARCHITECTURAL FIX
+                  </span>
+                  <p className="text-xs sm:text-sm text-[#450C0A] leading-relaxed">
                     {study.solution}
                   </p>
-
-                  {/* Flow preview */}
-                  <div className="pt-2">
-                    <span className="text-[11px] font-mono tracking-widest uppercase text-[#8B93A3] block mb-2">
-                      WORKFLOW TRANSFORMATION:
-                    </span>
-                    <div className="flex flex-wrap items-center gap-1.5 text-xs font-mono">
-                      {study.flowSteps.map((step, idx) => (
-                        <span key={step.label} className="flex items-center gap-1.5">
-                          <span className="px-2 py-0.5 rounded bg-white/[0.03] border border-white/5 text-white/90">
-                            {step.label}
-                          </span>
-                          {idx < study.flowSteps.length - 1 && (
-                            <span className="text-[#4F7CFF] text-[10px]">→</span>
-                          )}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Tech stack */}
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {study.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.02] border border-white/[0.06] text-[#8B93A3]"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
                 </div>
 
-                <div className="lg:col-span-4 flex flex-col justify-between h-full space-y-6 lg:border-l lg:border-white/[0.08] lg:pl-8">
-                  <div>
-                    <span className="text-[11px] font-mono tracking-widest uppercase text-emerald-400 font-semibold block mb-3">
-                      VERIFIED OUTCOMES:
-                    </span>
-                    <ul className="space-y-2 text-xs text-[#8B93A3]">
-                      {study.businessImpact.slice(0, 3).map((impact, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                          <span>{impact}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Link
-                    href={`/work/${study.slug}`}
-                    data-cursor="DEEP DIVE"
-                    className="inline-flex items-center justify-between w-full px-5 py-3 rounded-xl bg-[#4F7CFF]/15 border border-[#4F7CFF]/30 text-white text-xs font-mono font-medium hover:bg-[#4F7CFF] hover:border-[#4F7CFF] transition-all"
-                  >
-                    <span>Read Architecture Deep Dive</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                {/* 3. Outcome / Business Impact */}
+                <div className="space-y-2">
+                  <span className="text-[11px] font-mono tracking-widest uppercase text-[#B12223] block font-semibold">
+                    VERIFIED BUSINESS RESULT
+                  </span>
+                  <p className="text-xs sm:text-sm text-[#450C0A] leading-relaxed">
+                    {study.opportunity}
+                  </p>
                 </div>
               </div>
-            </div>
+
+              {/* Bottom Metrics Bar & Stack */}
+              <div className="mt-8 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                {/* Headline Metric */}
+                <div className="flex items-baseline gap-3">
+                  <div className="font-display text-3xl sm:text-4xl text-[#B12223]">
+                    {study.headlineMetric}
+                  </div>
+                  <div className="text-xs font-mono tracking-wider text-[#78716C] uppercase">
+                    {study.metricLabel}
+                  </div>
+                </div>
+
+                {/* Tech Stack Tags */}
+                <div className="flex flex-wrap items-center gap-2">
+                  {study.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2.5 py-1 text-[11px] font-mono bg-[#EADEDA]/60 border border-[#6D0305]/15 text-[#450C0A]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
           ))}
         </div>
       </section>
 
-      <FinalCTA />
+      <FooterEditorial />
     </main>
   );
 }

@@ -1,51 +1,49 @@
 import Navbar from "@/components/Navbar";
-import FinalCTA from "@/components/FinalCTA";
-import CustomCursor from "@/components/CustomCursor";
+import FooterEditorial from "@/components/FooterEditorial";
 import Link from "next/link";
 import { CASE_STUDIES } from "@/data/portfolioData";
-import { ArrowLeft, CheckCircle2, Cpu, Bot, Workflow, Database } from "lucide-react";
+import { ArrowLeft, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Case Study: Multi-Agent AI Business Automation Platform",
+  title: "Case Study: Multi-Agent Business Automation Platform — Dhruv Pathak",
   description:
-    "Autonomous B2B account discovery, ICP scoring, and tailored sequence generation using LangChain, LangGraph, n8n, Apollo.io, and HubSpot CRM.",
+    "Autonomous multi-agent system coordinating research, qualification, and content synthesis across web sources, CRMs, and outbound channels.",
 };
 
 export default function MultiAgentCaseStudyPage() {
   const study = CASE_STUDIES.find((c) => c.slug === "multi-agent")!;
 
   return (
-    <main className="min-h-screen bg-[#080A0F] text-[#F5F7FA]">
-      <CustomCursor />
+    <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
       <Navbar />
 
-      <article className="pt-36 pb-20 px-6 md:px-10 max-w-5xl mx-auto">
+      <article className="pt-32 pb-24 px-6 md:px-10 max-w-5xl mx-auto">
+        {/* Back Link */}
         <Link
           href="/work"
-          className="inline-flex items-center gap-2 text-xs font-mono text-[#8B93A3] hover:text-white transition-colors mb-8"
+          className="inline-flex items-center gap-2 text-xs font-mono text-[#B12223] hover:text-[#6D0305] transition-colors mb-8 font-semibold tracking-wider uppercase"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to All Case Studies</span>
+          <span>← BACK TO ARCHIVES</span>
         </Link>
 
-        {/* Header */}
-        <div className="space-y-4 mb-12 pb-8 border-b border-white/[0.08]">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="text-xs font-mono font-bold text-[#4F7CFF]">
-              CASE STUDY 02 · AGENTIC PIPELINES
+        {/* Editorial Header */}
+        <div className="space-y-4 mb-14 pb-8 border-b border-[#6D0305]/15">
+          <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-mono tracking-widest uppercase">
+            <span className="text-[#B12223] font-bold">
+              {study.number} · {study.clientContext}
             </span>
-            <span className="text-white/20">•</span>
-            <span className="text-xs font-mono text-emerald-400 font-semibold">
+            <span className="font-display text-xl text-[#B12223]">
               {study.headlineMetric} {study.metricLabel}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-tight">
+          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl text-[#6D0305] uppercase tracking-tight leading-[0.92]">
             {study.title}
           </h1>
 
-          <p className="text-lg font-mono text-[#8B93A3]">
+          <p className="text-base sm:text-lg font-mono text-[#B12223]">
             {study.subtitle}
           </p>
 
@@ -53,7 +51,7 @@ export default function MultiAgentCaseStudyPage() {
             {study.technologies.map((t) => (
               <span
                 key={t}
-                className="px-3 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/10 text-white"
+                className="px-3 py-1 text-xs font-mono bg-[#EADEDA]/60 border border-[#6D0305]/15 text-[#450C0A]"
               >
                 {t}
               </span>
@@ -61,90 +59,68 @@ export default function MultiAgentCaseStudyPage() {
           </div>
         </div>
 
-        {/* Content Body */}
-        <div className="space-y-12 text-sm sm:text-base text-[#8B93A3] leading-relaxed">
-          {/* Executive Summary */}
-          <div className="p-8 rounded-2xl bg-[#0E121B] border border-white/[0.08]">
-            <h2 className="text-xl font-mono font-bold text-white mb-3">
-              The Operational Bottleneck
+        {/* 3 Editorial Sections */}
+        <div className="space-y-12">
+          {/* Problem */}
+          <div className="border border-[#6D0305]/20 bg-[#FCF7F1] p-8 sm:p-12 space-y-4">
+            <span className="text-xs font-mono tracking-widest uppercase text-[#B12223] font-semibold block">
+              01 / THE CORE BOTTLENECK
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl text-[#6D0305] uppercase tracking-tight">
+              Rep Fatigue &amp; Superficial Personalization
             </h2>
-            <p className="mb-4">
-              Sales development representatives were spending an estimated 15 to 20 hours each
-              week navigating across disparate tools (Apollo, LinkedIn, corporate websites, and
-              news articles) to build target prospect lists. Reps manually read about company
-              announcements, scored the account against ambiguous criteria, and typed out cold
-              messages one by one.
-            </p>
-            <p>
-              This manual drag severely limited pipeline capacity to just a few dozen target
-              touchpoints weekly, with inconsistent messaging quality and CRM field omissions.
+            <p className="text-sm sm:text-base text-[#450C0A] leading-relaxed font-sans">
+              {study.problem}
             </p>
           </div>
 
-          {/* Architecture Pipeline */}
-          <div>
-            <h2 className="text-xl font-mono font-bold text-white mb-6">
-              The Coordinated Multi-Agent Orchestration Flow
+          {/* Architecture */}
+          <div className="border border-[#6D0305]/20 bg-[#FCF7F1] p-8 sm:p-12 space-y-4">
+            <span className="text-xs font-mono tracking-widest uppercase text-[#B12223] font-semibold block">
+              02 / THE ARCHITECTURAL FIX
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl text-[#6D0305] uppercase tracking-tight">
+              Multi-Agent DAG with Schema-Constrained Handoffs
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {study.flowSteps.map((step, idx) => (
-                <div
-                  key={step.label}
-                  className="p-5 rounded-xl bg-[#0E121B] border border-white/[0.06]"
-                >
-                  <span className="text-xs font-mono font-bold text-[#4F7CFF] block mb-1">
-                    AGENT 0{idx + 1}
-                  </span>
-                  <h3 className="text-sm font-bold text-white font-mono mb-2">
-                    {step.label}
-                  </h3>
-                  <p className="text-xs text-[#8B93A3] font-sans">
-                    {step.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+            <p className="text-sm sm:text-base text-[#450C0A] leading-relaxed font-sans mb-6">
+              {study.solution}
+            </p>
 
-          {/* Engineering Depth */}
-          <div className="p-8 rounded-2xl bg-[#0E121B] border border-white/[0.08]">
-            <h2 className="text-xl font-mono font-bold text-white mb-4">
-              Architecture &amp; Guardrails
-            </h2>
-            <ul className="space-y-3">
-              {study.architecturePoints.map((point, i) => (
-                <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-white/90">
-                  <Workflow className="w-4 h-4 text-[#4F7CFF] shrink-0 mt-0.5" />
+            <div className="space-y-3 pt-4 border-t border-[#6D0305]/15">
+              <span className="text-[11px] font-mono tracking-widest uppercase text-[#78716C] block">
+                KEY ARCHITECTURAL ELEMENTS:
+              </span>
+              {study.architecturePoints.map((point, idx) => (
+                <div key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-[#450C0A] font-sans">
+                  <span className="text-[#B12223] font-bold shrink-0">—</span>
                   <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Defensible Metrics */}
-          <div className="p-8 rounded-2xl bg-gradient-to-br from-emerald-950/20 to-[#0E121B] border border-emerald-500/30">
-            <h2 className="text-xl font-mono font-bold text-white mb-4 flex items-center gap-2">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-              <span>Measurable Operational Outcomes</span>
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-              {study.businessImpact.map((impact, i) => (
-                <div
-                  key={i}
-                  className="p-4 rounded-xl bg-white/[0.02] border border-white/5 text-xs font-mono text-[#F5F7FA]"
-                >
-                  {impact}
                 </div>
               ))}
             </div>
-            <p className="text-xs font-mono text-emerald-300 italic border-t border-emerald-500/20 pt-4">
-              &ldquo;{study.quote}&rdquo;
-            </p>
+          </div>
+
+          {/* Business Impact */}
+          <div className="border border-[#6D0305]/20 bg-[#FCF7F1] p-8 sm:p-12 space-y-6">
+            <span className="text-xs font-mono tracking-widest uppercase text-[#B12223] font-semibold block">
+              03 / VERIFIED BUSINESS OUTCOMES
+            </span>
+            <h2 className="font-display text-2xl sm:text-3xl text-[#6D0305] uppercase tracking-tight">
+              Defensible Operational Returns
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {study.businessImpact.map((impact, idx) => (
+                <div key={idx} className="flex items-start gap-3 p-4 bg-[#EADEDA]/30 border border-[#6D0305]/10">
+                  <CheckCircle2 className="w-4 h-4 text-[#B12223] shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-[#450C0A] font-sans">{impact}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </article>
 
-      <FinalCTA />
+      <FooterEditorial />
     </main>
   );
 }

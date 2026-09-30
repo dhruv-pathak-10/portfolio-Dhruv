@@ -1,19 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const viewport: Viewport = {
-  themeColor: "#080A0F",
+  themeColor: "#F6F1EB",
   width: "device-width",
   initialScale: 1,
 };
@@ -21,50 +10,20 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://itsdhruv.online"),
   title: {
-    default: "Dhruv Pathak — AI Solutions Engineer | AI Adoption & Solution Architecture",
-    template: "%s | Dhruv Pathak — AI Solutions Engineer",
+    default: "DHRUV PATHAK — AI Solutions Engineer & Solution Architecture",
+    template: "%s | DHRUV PATHAK",
   },
   description:
-    "AI Solutions Engineer focused on AI adoption, solution architecture, automation, AI agents and business workflow transformation. Turning messy operational problems into practical, deployable systems.",
-  keywords: [
-    "Dhruv Pathak",
-    "AI Solutions Engineer",
-    "AI Adoption Specialist",
-    "AI Consultant",
-    "Solution Architecture",
-    "Voice AI",
-    "AI Agents",
-    "RevOps Automation",
-    "LangChain",
-    "ElevenLabs",
-    "HubSpot",
-  ],
+    "AI Solutions Engineer focused on AI adoption, solution architecture, automation, and turning business problems into practical AI systems.",
   authors: [{ name: "Dhruv Pathak", url: "https://itsdhruv.online" }],
   creator: "Dhruv Pathak",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://itsdhruv.online",
-    title: "Dhruv Pathak — AI Solutions Engineer | AI Adoption & Solution Architecture",
-    description:
-      "I don't just build AI. I figure out where it belongs. AI Solutions Engineer bridging business problems and technical execution.",
-    siteName: "Dhruv Pathak Portfolio",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Dhruv Pathak — AI Solutions Engineer",
+    title: "DHRUV PATHAK — AI Solutions Engineer",
     description: "I don't just build AI. I figure out where it belongs.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    siteName: "Dhruv Pathak Editorial Portfolio",
   },
 };
 
@@ -74,8 +33,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth`}>
-      <body className="min-h-screen bg-[#080A0F] text-[#F5F7FA] font-sans antialiased selection:bg-[#4F7CFF]/30 selection:text-white">
+    <html lang="en" className="scroll-smooth bg-[#F6F1EB]">
+      <body className="min-h-screen bg-[#F6F1EB] text-[#1C1917] antialiased selection:bg-[#B12223] selection:text-[#FCF7F1]">
         {children}
       </body>
     </html>

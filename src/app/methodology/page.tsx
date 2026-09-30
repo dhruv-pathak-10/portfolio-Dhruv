@@ -1,12 +1,11 @@
 import Navbar from "@/components/Navbar";
-import FinalCTA from "@/components/FinalCTA";
-import CustomCursor from "@/components/CustomCursor";
+import FooterEditorial from "@/components/FooterEditorial";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Compass, Layers, ShieldCheck, Target, Zap } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AI Adoption Methodology & Client Discovery Framework",
+  title: "AI Adoption Methodology & Client Discovery Framework — Dhruv Pathak",
   description:
     "The 7-step systematic consulting framework for translating ambiguous client friction into executable, high-ROI AI solutions with guaranteed frontline adoption.",
 };
@@ -43,105 +42,94 @@ export default function MethodologyPage() {
     },
     {
       num: "05",
-      title: "Frontline Enablement & Adoption",
-      subtitle: "Eliminating User Friction",
-      desc: "An AI system ignored by operators yields zero ROI. We build frictionless handoffs, clear notification alerts, and lead interactive enablement sessions for non-technical teams.",
-      deliverable: "Standard Operating Procedure (SOP) & Team Enablement Kit",
+      title: "Build for Frontline Adoption",
+      subtitle: "Low Cognitive Friction & In-Workflow Delivery",
+      desc: "An AI system ignored by operators has negative ROI. Design interfaces that live where reps already work (WhatsApp, Slack, CRM records) requiring zero net-new behavioral friction.",
+      deliverable: "Operator UX Spec & Frictionless Delivery Surface",
     },
     {
       num: "06",
-      title: "Measure Against Benchmark KPIs",
-      subtitle: "Defensible ROI Validation",
-      desc: "Evaluate the pilot against defensible commercial metrics: hours saved, response latency reduction, qualification rate lift, and user adoption frequency.",
-      deliverable: "Adoption Audit Report & Verified ROI Dashboard",
+      title: "Measure Real Outcomes",
+      subtitle: "Commercial Impact > Model Benchmarks",
+      desc: "Replace vanity metrics like token throughput or prompt accuracy with lead response latency, conversion uplift, rep hours returned, and revenue leakage eliminated.",
+      deliverable: "KPI Dashboard & Commercial ROI Audit",
     },
     {
       num: "07",
-      title: "Scale & Continuous Optimization",
-      subtitle: "Feedback Loops & Model Tuning",
-      desc: "Establish structured feedback loops to catch edge-case divergences, refine system prompts, update vector indexes, and expand system scope predictably.",
-      deliverable: "Long-term System Governance & Tuning Playbook",
+      title: "Iterate & Institutionalize",
+      subtitle: "Feedback Loops & System Maintenance",
+      desc: "Review failure logs, capture edge cases, refine prompts and deterministic routing logic, and train internal champions to maintain and own the system independently.",
+      deliverable: "Operator Playbook & Runbook Documentation",
     },
   ];
 
   return (
-    <main className="min-h-screen bg-[#080A0F] text-[#F5F7FA]">
-      <CustomCursor />
+    <main className="min-h-screen bg-[#F6F1EB] text-[#1C1917] selection:bg-[#B12223] selection:text-[#FCF7F1]">
       <Navbar />
 
-      <section className="pt-36 pb-20 px-6 md:px-10 max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono tracking-widest bg-white/[0.04] border border-white/10 text-[#4F7CFF] mb-4">
-            <Compass className="w-3.5 h-3.5" />
-            <span>CONSULTING METHODOLOGY</span>
+      <section className="pt-32 pb-24 px-6 md:px-10 max-w-7xl mx-auto">
+        {/* Editorial Header */}
+        <div className="border-b border-[#6D0305]/15 pb-8 mb-16 sm:mb-20">
+          <div className="flex items-center justify-between text-xs font-mono tracking-widest text-[#450C0A] uppercase mb-6">
+            <span>METHODOLOGY / ADOPTION FRAMEWORK</span>
+            <span>SYSTEMATIC CONSULTING</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
-            THE 7-STEP AI ADOPTION LIFECYCLE
+          <h1 className="font-display text-5xl sm:text-7xl md:text-9xl text-[#6D0305] uppercase tracking-tight leading-[0.9]">
+            HOW I SOLVE
+            <span className="block text-[#B12223]">CLIENT PROBLEMS.</span>
           </h1>
 
-          <p className="mt-4 text-lg text-[#8B93A3] font-mono leading-relaxed">
-            &ldquo;AI should enter a workflow at the point where it creates leverage — not simply where it looks technically impressive.&rdquo;
+          <p className="mt-6 text-base sm:text-xl text-[#450C0A] font-medium max-w-3xl font-sans">
+            A 7-stage consulting framework for turning ambiguous organizational friction
+            into production-grade AI systems with verified frontline adoption.
           </p>
         </div>
 
-        {/* Core Thesis Card */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-[#0E121B] border border-white/[0.08] mb-16 shadow-2xl">
-          <h2 className="text-xl font-mono font-bold text-white mb-4">
-            Why Traditional AI Implementations Stall
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-[#8B93A3] leading-relaxed">
-            <p>
-              Companies rarely struggle because artificial intelligence models do not exist.
-              They struggle because the root high-impact problem has not been identified, the
-              underlying operational workflow has not been mapped, and frontline teams are handed
-              fragile software without a frictionless adoption path.
-            </p>
-            <p>
-              My approach starts with the business reality, audits daily friction, and engineers
-              backward into technical execution. A technically flawless model that addresses an
-              irrelevant bottleneck produces zero business value.
-            </p>
-          </div>
-        </div>
-
-        {/* 7 Steps Accordion/Cards */}
+        {/* 7-Step Editorial Sequence */}
         <div className="space-y-6">
-          {steps.map((s) => (
+          {steps.map((step) => (
             <div
-              key={s.num}
-              className="p-6 sm:p-8 rounded-2xl bg-[#0E121B] border border-white/[0.08] hover:border-[#4F7CFF]/40 transition-all duration-300"
+              key={step.num}
+              className="border border-[#6D0305]/20 bg-[#FCF7F1] p-8 sm:p-12 hover:border-[#6D0305] transition-colors"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-white/[0.06] mb-4">
-                <div className="flex items-center gap-4">
-                  <span className="text-2xl font-mono font-bold text-[#4F7CFF]">
-                    {s.num}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                {/* Step Number & Title */}
+                <div className="lg:col-span-4 space-y-2">
+                  <span className="font-display text-4xl sm:text-5xl text-[#B12223]">
+                    {step.num}
                   </span>
-                  <div>
-                    <h3 className="text-xl font-bold text-white">
-                      {s.title}
-                    </h3>
-                    <span className="text-xs font-mono text-[#8B93A3]">
-                      {s.subtitle}
-                    </span>
+                  <h2 className="font-display text-2xl sm:text-3xl text-[#6D0305] uppercase tracking-tight">
+                    {step.title}
+                  </h2>
+                  <div className="text-xs font-mono text-[#78716C]">
+                    {step.subtitle}
                   </div>
                 </div>
 
-                <div className="text-xs font-mono text-emerald-400">
-                  Deliverable: {s.deliverable}
+                {/* Step Description */}
+                <div className="lg:col-span-5 font-sans">
+                  <p className="text-xs sm:text-sm text-[#450C0A] leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+
+                {/* Deliverable Box */}
+                <div className="lg:col-span-3 border-l-2 border-[#B12223] pl-4 space-y-1">
+                  <span className="text-[10px] font-mono tracking-widest uppercase text-[#B12223] font-bold block">
+                    DELIVERABLE
+                  </span>
+                  <p className="text-xs font-mono text-[#6D0305]">
+                    {step.deliverable}
+                  </p>
                 </div>
               </div>
-
-              <p className="text-sm text-[#8B93A3] leading-relaxed font-sans">
-                {s.desc}
-              </p>
             </div>
           ))}
         </div>
       </section>
 
-      <FinalCTA />
+      <FooterEditorial />
     </main>
   );
 }
