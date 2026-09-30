@@ -64,7 +64,7 @@ export default function HeroCover() {
                      my-4 lg:my-0
                      lg:absolute lg:left-[55%] lg:-translate-x-1/2 lg:bottom-0"
         >
-          <div className="relative h-[46vh] sm:h-[56vh] md:h-[64vh] lg:h-[76vh] xl:h-[82vh] max-h-[760px] aspect-[1/1]">
+          <div className="relative h-[48vh] sm:h-[58vh] md:h-[66vh] lg:h-[78vh] xl:h-[84vh] max-h-[780px] aspect-[764/1024]">
             <Image
               src="/images/dhruv-cutout.png"
               alt="Dhruv Pathak — AI Solutions Engineer"
